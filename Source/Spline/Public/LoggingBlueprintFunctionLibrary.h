@@ -2,8 +2,6 @@
 
 #pragma once
 
-#include <iostream>
-#include <fstream>
 #include "CoreMinimal.h"
 #include "CoreMisc.h"
 #include "Runtime/Core/Public/Misc/Paths.h"
@@ -30,10 +28,8 @@ class SPLINE_API ULoggingBlueprintFunctionLibrary : public UBlueprintFunctionLib
 	UFUNCTION(BlueprintCallable, Category = "Logging")
 	static bool AppendLogToFile(const FString& LogToAppend, const FString& FileName);
 
-	/** Saves text to filename of your choosing, make sure include whichever file extension you want in the filename, ex: SelfNotes.txt . Make sure to include the entire file path in the save directory, ex: C:\MyGameDir\BPSavedTextFiles */
-	UFUNCTION(BlueprintCallable, Category = "Victory BP Library|File IO")
-	static bool FileIO__SaveStringTextToFile(FString SaveDirectory, FString JoyfulFileName, FString SaveText, bool AllowOverWriting = false);
-
+    UFUNCTION(BlueprintCallable, Category = "Time")
+    static FString GetDateTimeString(FDateTime DateTime);
 	
 };
 

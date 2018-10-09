@@ -1,14 +1,21 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #pragma once
-
+#include <string>
 #include "CoreMinimal.h"
 #include "CoreMisc.h"
-#include "Runtime/Core/Public/Misc/Paths.h"
-#include "Runtime/Core/Public/Misc/FileHelper.h"
+#include "Engine.h"
+#include "Engine/World.h"
+#include "Kismet/BlueprintFunctionLibrary.h"
 #include "Runtime/Core/Public/HAL/FileManager.h"
 #include "Runtime/Core/Public/HAL/PlatformFilemanager.h"
-#include "Kismet/BlueprintFunctionLibrary.h"
+#include "Runtime/Core/Public/Misc/FileHelper.h"
+#include "Runtime/Core/Public/Misc/Paths.h"
+#include "Runtime/Engine/Classes/Engine/GameViewportClient.h"
+#include "Runtime/Engine/Public/ImageUtils.h"
+#include "Runtime/Engine/Classes/GameFramework/Actor.h"
+#include "Runtime/Engine/Public/HighResScreenshot.h"
+#include "Runtime/Engine/Public/UnrealClient.h"
 #include "LoggingBlueprintFunctionLibrary.generated.h"
 
 /**
@@ -31,6 +38,9 @@ class SPLINE_API ULoggingBlueprintFunctionLibrary : public UBlueprintFunctionLib
     UFUNCTION(BlueprintCallable, Category = "Time")
     static FString GetDateTimeString(FDateTime DateTime);
 	
+    UFUNCTION(BlueprintCallable, Category = "Logging")
+    static void CreateViewportScreenShotFilename(AActor *target,  FString filename, int sizeX, int sizeY);
+
 };
 
 
